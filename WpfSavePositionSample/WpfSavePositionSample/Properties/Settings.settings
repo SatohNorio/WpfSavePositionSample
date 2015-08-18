@@ -5,5 +5,27 @@
     <Setting Name="MainWindow_Bounds" Type="System.Windows.Rect" Scope="User">
       <Value Profile="(Default)">100,100,500,400</Value>
     </Setting>
+    <Setting Name="DataGrid_Columns" Type="System.String" Scope="User">
+      <Value Profile="(Default)">
+              
+                
+                  3
+                  -1
+                
+                
+                  1
+                  -1
+                
+                
+                  0
+                  -1
+                
+                
+                  2
+                  -1
+                
+              
+            </Value>
+    </Setting>
   </Settings>
 </SettingsFile>

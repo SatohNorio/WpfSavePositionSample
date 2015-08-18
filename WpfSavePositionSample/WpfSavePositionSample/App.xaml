@@ -1,9 +1,12 @@
 ﻿<Application x:Class="WpfSavePositionSample.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:WpfSavePositionSample" StartupUri="MainWindow.xaml">
+             xmlns:local="clr-namespace:WpfSavePositionSample"
+             xmlns:prop="clr-namespace:WpfSavePositionSample.Properties" StartupUri="MainWindow.xaml">
     <Application.Resources>
         <!--  シングルトンをリソースとして使用  -->
         <x:StaticExtension x:Key="FSetting" Member="local:Setting.Instance" />
+        <prop:Settings x:Key="sett" />
+        <local:DoubleToDataGridLengthConverter x:Key="DataGridLengthConverter" />
     </Application.Resources>
 </Application>

@@ -5,17 +5,20 @@
         xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:local="clr-namespace:WpfSavePositionSample"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" Title="MainWindow"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Name="FMainWindow"
+        Title="MainWindow"
         Width="{Binding MainWindowBounds.Width,
-                        Source=FSetting}"
+                        Mode=OneWay,
+                        Source={StaticResource FSetting}}"
         Height="{Binding MainWindowBounds.Height,
-                         Source=FSetting}"
+                         Mode=OneWay,
+                         Source={StaticResource FSetting}}"
         Left="{Binding MainWindowBounds.Left,
                        Mode=OneWay,
-                       Source=FSetting}"
+                       Source={StaticResource FSetting}}"
         Top="{Binding MainWindowBounds.Top,
                       Mode=OneWay,
-                      Source=FSetting}"
+                      Source={StaticResource FSetting}}"
         mc:Ignorable="d">
     <Window.DataContext>
         <local:MainWindowViewModel x:Name="FViewModel" />
@@ -28,15 +31,20 @@
     </i:Interaction.Triggers>
 
     <i:Interaction.Behaviors>
-        <!--<local:WindowStateSaveBehavior />-->
+        <local:WindowStateSaveBehavior />
     </i:Interaction.Behaviors>
 
     <Grid>
-        <DataGrid x:Name="dataGrid" Margin="5">
+        <Control />
+        <DataGrid x:Name="FDataGrid" Margin="5" AutoGenerateColumns="False"
+                  ItemsSource="{Binding People}">
+            <i:Interaction.Behaviors>
+                <local:DataGridColumnsSaveBehavior />
+            </i:Interaction.Behaviors>
             <DataGrid.Columns>
 
                 <!--  No.  -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="{Binding DataGridColumns[0].Width, Mode=OneWay, Source={StaticResource FSetting}, Converter={StaticResource DataGridLengthConverter}}" DisplayIndex="{Binding DataGridColumns[0].DisplayIndex, Mode=OneWay, Source={StaticResource FSetting}}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <Label Content="No." FontFamily="Meiryo UI" FontSize="16"
@@ -46,14 +54,16 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Border HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding SeqNo}" />
+                                <TextBlock FontFamily="Meiryo UI" FontSize="16" FontStyle="Italic"
+                                           FontWeight="Bold"
+                                           Text="{Binding SeqNo}" />
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <!--  名前  -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="{Binding DataGridColumns[1].Width, Mode=OneWay, Source={StaticResource FSetting}, Converter={StaticResource DataGridLengthConverter}}" DisplayIndex="{Binding DataGridColumns[1].DisplayIndex, Mode=OneWay, Source={StaticResource FSetting}}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <Label Content="名前" FontFamily="Meiryo UI" FontSize="16"
@@ -63,14 +73,16 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Border HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock FontFamily="Meiryo UI" FontSize="16" FontStyle="Italic"
+                                           FontWeight="Bold"
+                                           Text="{Binding Name}" />
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <!--  年齢  -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="{Binding DataGridColumns[2].Width, Mode=OneWay, Source={StaticResource FSetting}, Converter={StaticResource DataGridLengthConverter}}" DisplayIndex="{Binding DataGridColumns[2].DisplayIndex, Mode=OneWay, Source={StaticResource FSetting}}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <Label Content="年齢" FontFamily="Meiryo UI" FontSize="16"
@@ -80,14 +92,16 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Border HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Age}" />
+                                <TextBlock FontFamily="Meiryo UI" FontSize="16" FontStyle="Italic"
+                                           FontWeight="Bold"
+                                           Text="{Binding Age}" />
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
                 <!--  コメント  -->
-                <DataGridTemplateColumn>
+                <DataGridTemplateColumn Width="{Binding DataGridColumns[3].Width, Mode=OneWay, Source={StaticResource FSetting}, Converter={StaticResource DataGridLengthConverter}}" DisplayIndex="{Binding DataGridColumns[3].DisplayIndex, Mode=OneWay, Source={StaticResource FSetting}}">
                     <DataGridTemplateColumn.HeaderTemplate>
                         <DataTemplate>
                             <Label Content="コメント" FontFamily="Meiryo UI" FontSize="16"
@@ -97,7 +111,9 @@
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Border HorizontalAlignment="Right" VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Comment}" />
+                                <TextBlock FontFamily="Meiryo UI" FontSize="16" FontStyle="Italic"
+                                           FontWeight="Bold"
+                                           Text="{Binding Comment}" />
                             </Border>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
