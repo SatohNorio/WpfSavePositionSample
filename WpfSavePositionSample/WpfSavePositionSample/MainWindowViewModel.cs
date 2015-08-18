@@ -25,6 +25,7 @@ namespace WpfSavePositionSample
             l.Add(new Person() { SeqNo = 4, Name = "田中", Age = 50, Comment = "" });
             l.Add(new Person() { SeqNo = 5, Name = "石田", Age = 24, Comment = "おおおおお。" });
             l.Add(new Person() { SeqNo = 6, Name = "宮本", Age = 17, Comment = "English is also ok." });
+
         }
         private ObservableCollection<Person> _people = new ObservableCollection<Person>();
 

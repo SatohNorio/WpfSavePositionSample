@@ -34,5 +34,36 @@ namespace WpfSavePositionSample.Properties {
                 this["MainWindow_Bounds"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfColumnSetting xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""
+xmlns:xsd=""http://www.w3.org/2001/XMLSchema"">
+<ColumnSetting>
+<DisplayIndex>0</DisplayIndex>
+<Width>-1</Width>
+</ColumnSetting>
+<ColumnSetting>
+<DisplayIndex>1</DisplayIndex>
+<Width>-1</Width>
+</ColumnSetting>
+<ColumnSetting>
+<DisplayIndex>2</DisplayIndex>
+<Width>-1</Width>
+</ColumnSetting>
+<ColumnSetting>
+<DisplayIndex>3</DisplayIndex>
+<Width>-1</Width>
+</ColumnSetting>
+</ArrayOfColumnSetting>")]
+        public System.Collections.Generic.List<ColumnSetting> DataGrid_Columns {
+            get {
+                return ((System.Collections.Generic.List<ColumnSetting>)(this["DataGrid_Columns"]));
+            }
+            set {
+                this["DataGrid_Columns"] = value;
+            }
+        }
     }
 }
